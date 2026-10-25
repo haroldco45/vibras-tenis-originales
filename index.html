@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vibras Tenis Originales</title>
+<meta name="description" content="Tenis y ropa Adidas originales en Caucasia y todo Colombia. Inventario propio y pedidos por encargo. Pide por WhatsApp.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="manifest" href="manifest.json">
+<meta property="og:title" content="Vibras Tenis Originales">
+<meta property="og:description" content="Adidas originales: tenis de running, camisetas y Originals. Pide por WhatsApp.">
+<meta property="og:image" content="https://assets.adidas.com/images/w_1200,f_auto,q_auto/ab37c6e90db747f6b3f5947002e8b109_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b0b0c; --ink2:#161618; --ink3:#232327;
+  --paper:#f4f4f1; --white:#fff; --muted:#9a9aa2;
+  --lime:#d4ff3a; --lime-d:#b8e21c; --hot:#ff4d2e;
+  --card:#eceeef; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.h{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
+
+/* ---------- TOP BAR ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;padding-top:max(14px,env(safe-area-inset-top));transition:background .3s,backdrop-filter .3s}
+.top.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(14px)}
+.brand{font-family:'Barlow Condensed';font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.brand b{color:var(--lime)}
+.brand small{display:block;font-family:'Barlow';font-weight:600;font-size:10px;letter-spacing:.22em;color:var(--muted);margin-top:3px}
+.top-cta{background:var(--lime);color:var(--ink);font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s linear}
+.slide.on img{transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.25) 0%,rgba(11,11,12,0) 30%,rgba(11,11,12,.55) 62%,var(--ink) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 20px 40px;max-width:900px}
+.kicker{display:inline-block;background:var(--lime);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;margin-bottom:16px}
+.hero h1{font-size:clamp(58px,15vw,150px);font-weight:900}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--white)}
+.hero p{margin-top:16px;font-size:17px;max-width:520px;color:#d7d7db}
+.hero-actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;padding:16px 22px;border-radius:999px;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.6);color:var(--white)}
+.dots{position:absolute;right:20px;bottom:46px;z-index:3;display:flex;flex-direction:column;gap:8px}
+.dots i{width:4px;height:22px;background:rgba(255,255,255,.3);border-radius:4px;transition:background .3s,height .3s}
+.dots i.on{background:var(--lime);height:38px}
+
+/* ---------- TICKER ---------- */
+.ticker{background:var(--lime);color:var(--ink);overflow:hidden;white-space:nowrap;padding:12px 0;transform:rotate(-1.5deg);margin:6px -10px 0}
+.ticker div{display:inline-block;animation:run 26s linear infinite;font-family:'Barlow Condensed';font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.03em}
+.ticker span{margin:0 18px}
+.ticker span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--ink)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- MODES ---------- */
+.sec{padding:64px 18px 0;max-width:1180px;margin:0 auto}
+.sec-title{font-size:clamp(40px,9vw,76px);font-weight:900}
+.sec-title em{font-style:normal;color:var(--lime)}
+.sec-sub{color:var(--muted);margin-top:10px;font-size:16px;max-width:560px}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.mode{position:relative;border-radius:var(--radius);overflow:hidden;min-height:220px;text-align:left;isolation:isolate}
+.mode img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.mode:hover img{transform:scale(1.06)}
+.mode::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.85))}
+.mode-in{position:absolute;left:16px;right:16px;bottom:16px}
+.mode .tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}
+.mode h3{font-size:34px;font-weight:900;margin-top:4px}
+.mode p{font-size:13px;color:#d0d0d4;margin-top:6px;line-height:1.35}
+
+/* ---------- CATALOG ---------- */
+.tools{position:sticky;top:64px;z-index:20;background:var(--ink);padding:14px 0 12px;margin-top:22px}
+.search{width:100%;background:var(--ink2);border:1.5px solid var(--ink3);color:var(--white);font:inherit;font-size:16px;padding:14px 18px;border-radius:999px;outline:none;transition:border .2s}
+.search:focus{border-color:var(--lime)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-top:12px;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1.5px solid var(--ink3);background:var(--ink2);font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;white-space:nowrap;transition:all .2s}
+.chip.on{background:var(--white);color:var(--ink);border-color:var(--white)}
+.chip.mode-chip.on{background:var(--lime);border-color:var(--lime)}
+.count{color:var(--muted);font-size:13px;margin:6px 2px 0;letter-spacing:.04em}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+.card{background:var(--card);color:var(--ink);border-radius:var(--radius);overflow:hidden;text-align:left;display:flex;flex-direction:column;
+  opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}
+.card.in{opacity:1;transform:none}
+.card-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:#e4e6e7}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .6s}
+.card-img img.b{opacity:0}
+.card:hover .card-img img.a{opacity:0}
+.card:hover .card-img img.b{opacity:1;transform:scale(1.04)}
+.badge{position:absolute;left:10px;top:10px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;background:var(--ink);color:var(--white)}
+.badge.ya{background:var(--lime);color:var(--ink)}
+.card-body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-line{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6b6b73}
+.card h4{font-family:'Barlow Condensed';font-weight:800;font-size:21px;text-transform:uppercase;line-height:1}
+.card .ref{font-size:12px;color:#55555c;margin-top:auto;padding-top:6px}
+.card .ref b{font-weight:700;color:var(--ink);letter-spacing:.06em}
+.empty{grid-column:1/-1;background:var(--ink2);border-radius:var(--radius);padding:36px 22px;text-align:center;color:#c9c9cf}
+.empty b{display:block;font-family:'Barlow Condensed';font-size:30px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;gap:12px;margin-top:26px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--ink2);border-radius:var(--radius);padding:22px 20px;position:relative;overflow:hidden}
+.step .n{font-family:'Barlow Condensed';font-weight:900;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--lime);position:absolute;right:14px;top:12px;opacity:.9}
+.step h4{font-family:'Barlow Condensed';font-weight:800;font-size:26px;text-transform:uppercase;max-width:70%}
+.step p{color:#c4c4ca;margin-top:8px;font-size:15px;line-height:1.45;max-width:85%}
+
+/* ---------- PROMISE ---------- */
+.promise{margin-top:64px;position:relative;min-height:420px;overflow:hidden;display:flex;align-items:flex-end}
+.promise img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.promise::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.55) 60%,rgba(11,11,12,.2))}
+.promise-in{position:relative;z-index:2;padding:40px 20px;max-width:620px}
+.promise h2{font-size:clamp(44px,10vw,88px);font-weight:900}
+.promise h2 em{font-style:normal;color:var(--lime)}
+.promise p{margin-top:14px;color:#dadade;font-size:16px;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+footer{padding:48px 18px calc(110px + env(safe-area-inset-bottom));max-width:1180px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.55}
+footer .brand{color:var(--white);font-size:30px;margin-bottom:14px}
+footer p+p{margin-top:10px}
+footer a{color:var(--white)}
+
+/* ---------- FLOATING CTA ---------- */
+.float{position:fixed;left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:35;display:flex;justify-content:center;pointer-events:none}
+.float a{pointer-events:auto;background:var(--lime);color:var(--ink);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+  padding:16px 26px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(212,255,58,.25);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 10px 44px rgba(212,255,58,.55)}}
+
+/* ---------- SHEET ---------- */
+.veil{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .3s}
+.veil.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;background:var(--paper);color:var(--ink);border-radius:24px 24px 0 0;max-height:94svh;overflow-y:auto;
+  transform:translateY(105%);transition:transform .42s cubic-bezier(.2,.9,.2,1);max-width:760px;margin:0 auto}
+.sheet.on{transform:none}
+.grab{width:44px;height:5px;border-radius:5px;background:#c9c9cc;margin:10px auto 0}
+.close{position:absolute;right:14px;top:14px;z-index:3;background:var(--ink);color:var(--white);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border-radius:999px}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:10px}
+.gal::-webkit-scrollbar{display:none}
+.gal img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:1/1;object-fit:cover;background:#e4e6e7}
+.gal-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.gal-dots i{width:7px;height:7px;border-radius:50%;background:#c9c9cc;transition:all .25s}
+.gal-dots i.on{background:var(--ink);width:22px;border-radius:7px}
+.sh-body{padding:18px 20px calc(28px + env(safe-area-inset-bottom))}
+.sh-line{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6b6b73}
+.sh-body h2{font-size:40px;font-weight:900;margin-top:4px}
+.sh-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pill{background:#e3e4e5;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px}
+.pill.dark{background:var(--ink);color:var(--white)}
+.sh-desc{margin-top:14px;font-size:15px;line-height:1.5;color:#3a3a40}
+.lbl{margin-top:20px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.note{font-size:13px;color:#6b6b73;margin-top:4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.opt{min-width:56px;border:1.5px solid #cfd0d2;background:var(--white);font-weight:700;font-size:15px;padding:11px 12px;border-radius:12px;transition:all .15s}
+.opt.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.feat{margin-top:18px;display:grid;gap:8px}
+.feat div{background:var(--white);border-radius:12px;padding:12px 14px;font-size:14px}
+.feat b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b73;margin-bottom:2px}
+.wa{display:block;width:100%;margin-top:22px;background:var(--ink);color:var(--lime);font-weight:800;font-size:16px;letter-spacing:.08em;text-transform:uppercase;padding:18px;border-radius:999px;text-align:center}
+.wa.need{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fine{font-size:12px;color:#7a7a82;text-align:center;margin-top:10px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="brand">Vibras <b>Tenis</b> Originales<small>Adidas originales · Colombia</small></div>
+  <a class="top-cta" href="#catalogo">Ver catálogo</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="slide on"><img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto:best,fl_lossy/global_fw26_hyperboost_euphoria_originals_fw26_launch_euphoria_lt_pdp_banner_split_1_d_3dff63a73b.jpg" alt="Tenis Hyperboost EPHR LT en la calle"></div>
+  <div class="slide"><img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/Men_ec1f282ea7.jpg" alt="Corredor con tenis de running"></div>
+  <div class="slide"><img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto:best,fl_lossy/global_fw26_hyperboost_euphoria_originals_fw26_launch_euphoria_lt_pdp_banner_split_2_d_c95ea6445a.jpg" alt="Detalle de tenis Hyperboost puestos"></div>
+  <div class="slide"><img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/Women_6e3d103238.jpg" alt="Corredora con tenis de running"></div>
+  <div class="hero-copy">
+    <span class="kicker">100% originales</span>
+    <h1 class="h">Vibras<span>Tenis</span>Originales</h1>
+    <p>Tenis y ropa Adidas originales. Lo que tenemos en mano te lo entregamos ya; lo que no, te lo traemos por encargo.</p>
+    <div class="hero-actions">
+      <a class="btn btn-lime" href="#catalogo">Ver catálogo</a>
+      <a class="btn btn-ghost" href="#como">Cómo comprar</a>
+    </div>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<div class="ticker"><div id="tick"></div></div>
+
+<!-- MODES -->
+<section class="sec" id="modos">
+  <h2 class="sec-title h">Dos formas de <em>comprar</em></h2>
+  <p class="sec-sub">Escoge según el afán que tengas. Los dos caminos son producto original.</p>
+  <div class="modes">
+    <button class="mode" data-go="ya">
+      <img src="https://assets.adidas.com/images/w_800,f_auto,q_auto/938469bb66f3421a99b0fda6d491eb38_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM4_hover.jpg" alt="">
+      <div class="mode-in"><div class="tag">Entrega inmediata</div><h3 class="h">Disponible ya</h3><p>Inventario físico en Caucasia. Pides hoy y lo tienes en pocos días.</p></div>
+    </button>
+    <button class="mode" data-go="encargo">
+      <img src="https://assets.adidas.com/images/w_800,f_auto,q_auto/5e1b08e72a2d428aafecfbf2ca2bd3ee_9366/RESPONSE_PACE_RUNNING_SHOES_Blue_KJ1775_HM3_hover.jpg" alt="">
+      <div class="mode-in"><div class="tag">Te lo traemos</div><h3 class="h">Por encargo</h3><p>Escoges modelo, talla y color. Lo pedimos y te avisamos cuando llegue.</p></div>
+    </button>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="sec" id="catalogo">
+  <h2 class="sec-title h">El <em>catálogo</em></h2>
+  <p class="sec-sub">Toca cualquier producto para ver sus fotos, escoger talla y pedirlo por WhatsApp.</p>
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Buscar modelo o referencia…" autocomplete="off">
+    <div class="chips" id="cats"></div>
+    <div class="chips" id="modesBar"></div>
+    <div class="count" id="count"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- HOW -->
+<section class="sec" id="como">
+  <h2 class="sec-title h">Cómo <em>pedir</em></h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Escoge tu producto</h4><p>Mira las fotos, la referencia y el color. Elige tu talla.</p></div>
+    <div class="step"><div class="n">2</div><h4>Pide por WhatsApp</h4><p>El botón arma el mensaje solo, con la referencia y la talla. Te confirmamos precio y disponibilidad.</p></div>
+    <div class="step"><div class="n">3</div><h4>Recíbelo</h4><p>Entregamos en Caucasia y despachamos a todo el país. El flete se acuerda por WhatsApp.</p></div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <img src="https://assets.adidas.com/images/w_1200,f_auto,q_auto/6d697c65817f4e11bcd93d72e7aca453_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8506_HM5.jpg" alt="Tenis Hyperboost EPHR LT">
+  <div class="promise-in">
+    <h2 class="h">Nada de réplicas.<br><em>Solo originales.</em></h2>
+    <p>Cada producto viene de la tienda oficial con su referencia de fábrica. La puedes verificar tú mismo antes de pagar.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Vibras <b style="color:var(--lime)">Tenis</b> Originales</div>
+  <p>Caucasia, Antioquia · Despachos a toda Colombia · WhatsApp <a href="https://wa.me/573117700431">311 770 0431</a></p>
+  <p>Vibras Tenis Originales es un vendedor independiente de productos Adidas originales. No somos tienda oficial ni representantes de Adidas. Adidas y sus marcas pertenecen a sus dueños; las fotos de producto son las publicadas por la marca.</p>
+  <p>Un proyecto de Vibras Positivas HM.</p>
+</footer>
+
+<div class="float"><a href="https://wa.me/573117700431?text=Hola%2C%20vengo%20de%20la%20app%20Vibras%20Tenis%20Originales%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
+
+<!-- SHEET -->
+<div class="veil" id="veil"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true">
+  <div class="grab"></div>
+  <button class="close" id="close">Cerrar</button>
+  <div class="gal" id="gal"></div>
+  <div class="gal-dots" id="galDots"></div>
+  <div class="sh-body">
+    <div class="sh-line" id="shLine"></div>
+    <h2 class="h" id="shName"></h2>
+    <div class="sh-meta" id="shMeta"></div>
+    <p class="sh-desc" id="shDesc"></p>
+    <div class="lbl">Escoge tu talla</div>
+    <div class="note" id="shSizeNote"></div>
+    <div class="opts" id="shSizes"></div>
+    <div class="lbl">¿Cómo lo quieres?</div>
+    <div class="opts" id="shModes"></div>
+    <div class="feat" id="shFeat"></div>
+    <button class="wa" id="wa">Pedir por WhatsApp</button>
+    <p class="fine">Precio y disponibilidad se confirman por WhatsApp.</p>
+  </div>
+</div>
+
+<script>
+const WA = '573117700431';
+const IMG = (p, w = 800) => `https://assets.adidas.com/images/w_${w},f_auto,q_auto/${p}`;
+
+/* stock: 'encargo' | 'ya'. Cuando tengas inventario físico, cambia a 'ya' y llena "tallasYa". */
+const PRODUCTS = [
+  { ref:'KJ1775', cat:'running', line:'Running · Hombre', name:'Response Pace',
+    color:'Azul oscuro / Plata mate / Negro', stock:'encargo',
+    desc:'Tenis de running con espuma Cloudfoam para amortiguación suave desde el primer paso. Capellada de malla que respira y suela de caucho completa para buen agarre.',
+    feat:[['Amortiguación','Cloudfoam EVA'],['Plantilla','OrthoLite'],['Peso','308 g']],
+    sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11'], sizeNote:'Tallas US de hombre. Horma normal: pide tu talla de siempre.',
+    imgs:['8d7908b4c22447d2888f855b7e7adbc1_9366/RESPONSE_PACE_RUNNING_SHOES_Blue_KJ1775_HM1.jpg','5e1b08e72a2d428aafecfbf2ca2bd3ee_9366/RESPONSE_PACE_RUNNING_SHOES_Blue_KJ1775_HM3_hover.jpg','6bc74b4d4c5143cc8bd032a82296fcdf_9366/RESPONSE_PACE_RUNNING_SHOES_Blue_KJ1775_HM4.jpg'] },
+  { ref:'JP9197', cat:'running', line:'Running · Hombre', name:'Duramo RC2',
+    color:'Negro / Plata metálico / Gris', stock:'encargo',
+    desc:'Tenis livianos con entresuela Lightmotion de largo completo: amortiguación ligera que responde rápido. Suela Adiwear con zonas de impacto reforzadas.',
+    feat:[['Amortiguación','Lightmotion'],['Suela','Adiwear'],['Peso','244 g']],
+    sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11'], sizeNote:'Tallas US de hombre. Horma normal: pide tu talla de siempre.',
+    imgs:['4fcf779cc7bf42898e6d378b85e759e4_9366/DURAMO_RC2_RUNNING_Shoes_Black_JP9197_HM1.jpg','27e6df4686934ea1921422956028181c_9366/DURAMO_RC2_RUNNING_Shoes_Black_JP9197_HM3_hover.jpg','0a8e4b9a9af746e0b26bd50c15245636_9366/DURAMO_RC2_RUNNING_Shoes_Black_JP9197_HM4.jpg'] },
+  { ref:'IN1172', cat:'camisetas', line:'Running · Mujer', name:'Camiseta Adizero Essentials',
+    color:'Negra', stock:'encargo',
+    desc:'Camiseta de running ultraliviana, de corte ajustado, con logo reflectivo para que te vean cuando sales temprano o de noche. Tecnología AEROREADY que saca el sudor.',
+    feat:[['Tela','AEROREADY · 100% poliéster reciclado'],['Corte','Ajustado, cuello redondo'],['Extra','Logo reflectivo']],
+    sizes:['XS','S','M','L','XL'], sizeNote:'Tallas de mujer. Corte ajustado: si te gusta holgada, pide una talla más.',
+    imgs:['61e371e623264c279776d07d2f1dbbe3_9366/Adizero_Essentials_Running_Tee_Black_IN1172_HM1.jpg','6934b9c02a2a49399ef7ff9d79d7cada_9366/Adizero_Essentials_Running_Tee_Black_IN1172_HM3_hover.jpg','1af0421e7383401993ba969882240379_9366/Adizero_Essentials_Running_Tee_Black_IN1172_HM4.jpg','c0fc871e7f1944e882b92b360ec5af33_9366/Adizero_Essentials_Running_Tee_Black_IN1172_HM5.jpg'] },
+  { ref:'IN1156', cat:'camisetas', line:'Running · Hombre', name:'Camiseta Adizero Essentials',
+    color:'Negra', stock:'encargo',
+    desc:'Camiseta clásica de running, liviana y suave contra la piel. AEROREADY mantiene el cuerpo seco para que aguantes los kilómetros que faltan.',
+    feat:[['Tela','AEROREADY · 100% poliéster reciclado'],['Corte','Ajustado, cuello redondo'],['Uso','Running y entreno']],
+    sizes:['XS','S','M','L','XL','2XL'], sizeNote:'Tallas de hombre. Corte ajustado.',
+    imgs:['37d44576e3254e95bf87213d1104181d_9366/Adizero_Essentials_Running_Tee_Black_IN1156_HM1.jpg','a561d85c84d144af98456c2847a500f7_9366/Adizero_Essentials_Running_Tee_Black_IN1156_HM3_hover.jpg','bc55b581fc604d84856074db32ffdd3e_9366/Adizero_Essentials_Running_Tee_Black_IN1156_HM4.jpg','10537452466d4bba9c616651788c7711_9366/Adizero_Essentials_Running_Tee_Black_IN1156_HM5.jpg'] },
+  { ref:'KZ8509', cat:'originals', line:'Originals · Unisex', name:'Hyperboost EPHR LT',
+    color:'Negro / Rojo solar / Blanco', stock:'encargo',
+    desc:'Estilo de calle con tecnología Boost: amortiguación que se siente como caminar en nubes. Capellada textil y sintética liviana, suela de caucho para la ciudad.',
+    feat:[['Amortiguación','BOOST'],['Línea','Adidas Originals'],['Peso','291 g']],
+    sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11'], sizeNote:'Tallas US de hombre. Esta horma viene grande: se recomienda media talla menos de la que usas.',
+    imgs:['ab37c6e90db747f6b3f5947002e8b109_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM1.jpg','4e8e5958216746629e93842691ba1da4_faec/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM3_hover.tiff.jpg','938469bb66f3421a99b0fda6d491eb38_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM4_hover.jpg','4b18a59ce8134ef9a3e9ee06b46dcc06_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8509_HM5.jpg'] },
+  { ref:'KZ8506', cat:'originals', line:'Originals · Unisex', name:'Hyperboost EPHR LT',
+    color:'Negro / Blanco', stock:'encargo',
+    desc:'La versión en negro y blanco del Hyperboost EPHR LT: va con todo. Boost para comodidad todo el día y diseño Originals para la calle.',
+    feat:[['Amortiguación','BOOST'],['Línea','Adidas Originals'],['Uso','Diario y calle']],
+    sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11'], sizeNote:'Tallas US de hombre. Esta horma viene grande: se recomienda media talla menos de la que usas.',
+    imgs:['a50ca60a729d4158ac3c540575755956_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8506_HM1.jpg','717ccbab31ae4e51819a046903482f2a_faec/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8506_HM3_hover.tiff.jpg','6be084ccd0a44622a97f8ddb431f6a7e_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8506_HM4_hover.jpg','6d697c65817f4e11bcd93d72e7aca453_9366/HYPERBOOST_EPHR_LT_SHOES_Black_KZ8506_HM5.jpg'] },
+];
+
+const CATS = [['todo','Todo'],['running','Tenis running'],['camisetas','Camisetas running'],['originals','Originals']];
+const MODES = [['todos','Todos'],['ya','Disponible ya'],['encargo','Por encargo']];
+let cat = 'todo', mode = 'todos', q = '';
+
+/* ---------- top bar ---------- */
+const top = document.getElementById('top');
+addEventListener('scroll', () => top.classList.toggle('solid', scrollY > 40), {passive:true});
+
+/* ---------- hero slider ---------- */
+const slides = [...document.querySelectorAll('.slide')], dots = document.getElementById('dots');
+slides.forEach(() => dots.appendChild(document.createElement('i')));
+let si = 0;
+function show(i){ slides.forEach((s,k)=>s.classList.toggle('on',k===i)); [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); }
+show(0); setInterval(()=>{ si=(si+1)%slides.length; show(si); }, 5200);
+slides.forEach(s => s.querySelector('img').onerror = () => s.remove());
+
+/* ---------- ticker ---------- */
+const words = ['Originales','Running','Originals','Por encargo','Disponible ya','Despachos a todo el país','Caucasia'];
+const t = words.map(w=>`<span>${w}</span>`).join('');
+document.getElementById('tick').innerHTML = t + t + t + t;
+
+/* ---------- chips ---------- */
+function chips(el, list, active, cls, on){
+  el.innerHTML = list.map(([k,l])=>`<button class="chip ${cls} ${k===active?'on':''}" data-k="${k}">${l}</button>`).join('');
+  el.onclick = e => { const b = e.target.closest('.chip'); if(!b) return; on(b.dataset.k); };
+}
+function drawChips(){
+  chips(document.getElementById('cats'), CATS, cat, '', k=>{cat=k;render();});
+  chips(document.getElementById('modesBar'), MODES, mode, 'mode-chip', k=>{mode=k;render();});
+}
+
+/* ---------- grid ---------- */
+const grid = document.getElementById('grid');
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+function render(){
+  drawChips();
+  const s = q.trim().toLowerCase();
+  const list = PRODUCTS.filter(p =>
+    (cat==='todo' || p.cat===cat) &&
+    (mode==='todos' || p.stock===mode) &&
+    (!s || (p.name+' '+p.ref+' '+p.line+' '+p.color).toLowerCase().includes(s)));
+  document.getElementById('count').textContent = list.length + (list.length===1?' producto':' productos');
+  if(!list.length){
+    grid.innerHTML = mode==='ya'
+      ? `<div class="empty"><b>Llegando pronto</b>Estamos montando el inventario físico. Mientras tanto, todo lo del catálogo te lo traemos por encargo.</div>`
+      : `<div class="empty"><b>Nada por aquí</b>No encontramos ese producto. Escríbenos por WhatsApp y te lo buscamos.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map((p,i)=>`
+    <button class="card" data-ref="${p.ref}" style="transition-delay:${i*60}ms">
+      <div class="card-img">
+        <span class="badge ${p.stock==='ya'?'ya':''}">${p.stock==='ya'?'Disponible ya':'Por encargo'}</span>
+        <img class="a" loading="lazy" src="${IMG(p.imgs[0],600)}" alt="${p.name} ${p.color}">
+        <img class="b" loading="lazy" src="${IMG(p.imgs[1]||p.imgs[0],600)}" alt="">
+      </div>
+      <div class="card-body">
+        <div class="card-line">${p.line}</div>
+        <h4>${p.name}</h4>
+        <div class="ref">Ref. <b>${p.ref}</b> · ${p.color}</div>
+      </div>
+    </button>`).join('');
+  grid.querySelectorAll('.card').forEach(c => io.observe(c));
+}
+grid.onclick = e => { const c = e.target.closest('.card'); if(c) open(c.dataset.ref); };
+document.getElementById('q').addEventListener('input', e => { q = e.target.value; render(); });
+document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
+  mode = b.dataset.go; render(); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
+});
+
+/* ---------- sheet ---------- */
+const sheet = document.getElementById('sheet'), veil = document.getElementById('veil');
+let cur = null, size = null, how = null;
+function open(ref){
+  cur = PRODUCTS.find(p=>p.ref===ref); size = null; how = cur.stock;
+  const gal = document.getElementById('gal'), gd = document.getElementById('galDots');
+  gal.innerHTML = cur.imgs.map(i=>`<img src="${IMG(i,1000)}" alt="${cur.name}">`).join('');
+  gd.innerHTML = cur.imgs.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('');
+  gal.scrollLeft = 0;
+  gal.onscroll = () => { const k = Math.round(gal.scrollLeft/gal.clientWidth); [...gd.children].forEach((d,j)=>d.classList.toggle('on',j===k)); };
+  document.getElementById('shLine').textContent = cur.line;
+  document.getElementById('shName').textContent = cur.name;
+  document.getElementById('shMeta').innerHTML = `<span class="pill dark">Ref. ${cur.ref}</span><span class="pill">${cur.color}</span>`;
+  document.getElementById('shDesc').textContent = cur.desc;
+  document.getElementById('shSizeNote').textContent = cur.sizeNote;
+  document.getElementById('shFeat').innerHTML = cur.feat.map(([a,b])=>`<div><b>${a}</b>${b}</div>`).join('');
+  drawOpts();
+  sheet.scrollTop = 0; sheet.classList.add('on'); veil.classList.add('on'); document.body.style.overflow='hidden';
+}
+function drawOpts(){
+  const sz = document.getElementById('shSizes');
+  sz.innerHTML = cur.sizes.map(s=>`<button class="opt ${s===size?'on':''}" data-s="${s}">${s}</button>`).join('');
+  sz.onclick = e => { const b=e.target.closest('.opt'); if(!b) return; size=b.dataset.s; drawOpts(); };
+  const md = document.getElementById('shModes');
+  md.innerHTML = [['ya','Disponible ya'],['encargo','Por encargo']].map(([k,l])=>`<button class="opt ${k===how?'on':''}" data-m="${k}">${l}</button>`).join('');
+  md.onclick = e => { const b=e.target.closest('.opt'); if(!b) return; how=b.dataset.m; drawOpts(); };
+}
+function close(){ sheet.classList.remove('on'); veil.classList.remove('on'); document.body.style.overflow=''; }
+document.getElementById('close').onclick = close; veil.onclick = close;
+addEventListener('keydown', e => { if(e.key==='Escape') close(); });
+document.getElementById('wa').onclick = () => {
+  const btn = document.getElementById('wa');
+  if(!size){ btn.classList.remove('need'); void btn.offsetWidth; btn.classList.add('need'); btn.textContent='Primero escoge tu talla'; setTimeout(()=>btn.textContent='Pedir por WhatsApp',1600); return; }
+  const msg = `Hola, vengo de la app Vibras Tenis Originales. Quiero este producto:\n\n`+
+    `${cur.name} (${cur.line})\nReferencia: ${cur.ref}\nColor: ${cur.color}\nTalla: ${size}\n`+
+    `Modalidad: ${how==='ya'?'Disponible ya (inventario)':'Por encargo'}\n\n¿Me confirmas precio y disponibilidad?`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+};
+
+/* deep link: ?ref=KZ8509 abre el producto directo */
+render();
+const qp = new URLSearchParams(location.search).get('ref');
+if(qp && PRODUCTS.some(p=>p.ref===qp.toUpperCase())) setTimeout(()=>open(qp.toUpperCase()), 400);
+
+if('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
