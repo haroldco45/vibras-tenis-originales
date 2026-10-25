@@ -1,4 +1,4 @@
-const CACHE = 'vibras-tenis-v1';
+const CACHE = 'vibras-tenis-v2';
 const SHELL = ['./', './index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
