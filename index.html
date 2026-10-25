@@ -287,6 +287,7 @@ footer a{color:var(--white)}
 </div>
 
 <script>
+(function(){
 const WA = '573117700431';
 const IMG = (p, w = 800) => `https://assets.adidas.com/images/w_${w},f_auto,q_auto/${p}`;
 
@@ -355,8 +356,8 @@ const MODES = [['todos','Todos'],['ya','Disponible ya'],['encargo','Por encargo'
 let cat = 'todo', mode = 'todos', q = '';
 
 /* ---------- top bar ---------- */
-const top = document.getElementById('top');
-addEventListener('scroll', () => top.classList.toggle('solid', scrollY > 40), {passive:true});
+const topBar = document.getElementById('top');
+addEventListener('scroll', () => topBar.classList.toggle('solid', scrollY > 40), {passive:true});
 
 /* ---------- hero slider ---------- */
 const slides = [...document.querySelectorAll('.slide')], dots = document.getElementById('dots');
@@ -413,7 +414,7 @@ function render(){
     </button>`).join('');
   grid.querySelectorAll('.card').forEach(c => io.observe(c));
 }
-grid.onclick = e => { const c = e.target.closest('.card'); if(c) open(c.dataset.ref); };
+grid.onclick = e => { const c = e.target.closest('.card'); if(c) openSheet(c.dataset.ref); };
 document.getElementById('q').addEventListener('input', e => { q = e.target.value; render(); });
 document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
   mode = b.dataset.go; render(); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
@@ -422,7 +423,7 @@ document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
 /* ---------- sheet ---------- */
 const sheet = document.getElementById('sheet'), veil = document.getElementById('veil');
 let cur = null, size = null, how = null;
-function open(ref){
+function openSheet(ref){
   cur = PRODUCTS.find(p=>p.ref===ref); size = null; how = cur.stock;
   const gal = document.getElementById('gal'), gd = document.getElementById('galDots');
   gal.innerHTML = cur.imgs.map(i=>`<img src="${IMG(i,1000)}" alt="${cur.name}">`).join('');
@@ -446,9 +447,9 @@ function drawOpts(){
   md.innerHTML = [['ya','Disponible ya'],['encargo','Por encargo']].map(([k,l])=>`<button class="opt ${k===how?'on':''}" data-m="${k}">${l}</button>`).join('');
   md.onclick = e => { const b=e.target.closest('.opt'); if(!b) return; how=b.dataset.m; drawOpts(); };
 }
-function close(){ sheet.classList.remove('on'); veil.classList.remove('on'); document.body.style.overflow=''; }
-document.getElementById('close').onclick = close; veil.onclick = close;
-addEventListener('keydown', e => { if(e.key==='Escape') close(); });
+function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); document.body.style.overflow=''; }
+document.getElementById('close').onclick = closeSheet; veil.onclick = closeSheet;
+addEventListener('keydown', e => { if(e.key==='Escape') closeSheet(); });
 document.getElementById('wa').onclick = () => {
   const btn = document.getElementById('wa');
   if(!size){ btn.classList.remove('need'); void btn.offsetWidth; btn.classList.add('need'); btn.textContent='Primero escoge tu talla'; setTimeout(()=>btn.textContent='Pedir por WhatsApp',1600); return; }
@@ -461,9 +462,10 @@ document.getElementById('wa').onclick = () => {
 /* deep link: ?ref=KZ8509 abre el producto directo */
 render();
 const qp = new URLSearchParams(location.search).get('ref');
-if(qp && PRODUCTS.some(p=>p.ref===qp.toUpperCase())) setTimeout(()=>open(qp.toUpperCase()), 400);
+if(qp && PRODUCTS.some(p=>p.ref===qp.toUpperCase())) setTimeout(()=>openSheet(qp.toUpperCase()), 400);
 
 if('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+})();
 </script>
 </body>
 </html>
