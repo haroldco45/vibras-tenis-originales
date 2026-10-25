@@ -25,6 +25,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Barlow',system-ui,sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{text-decoration:none}
 .h{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
 
 /* ---------- TOP BAR ---------- */
@@ -43,7 +44,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s linear}
 .slide.on img{transform:scale(1)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.25) 0%,rgba(11,11,12,0) 30%,rgba(11,11,12,.55) 62%,var(--ink) 100%)}
-.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 20px 40px;max-width:900px}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 20px 104px;max-width:900px}
 .kicker{display:inline-block;background:var(--lime);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;margin-bottom:16px}
 .hero h1{font-size:clamp(58px,15vw,150px);font-weight:900}
 .hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--white)}
@@ -53,7 +54,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .btn:active{transform:scale(.97)}
 .btn-lime{background:var(--lime);color:var(--ink)}
 .btn-ghost{border:1.5px solid rgba(255,255,255,.6);color:var(--white)}
-.dots{position:absolute;right:20px;bottom:46px;z-index:3;display:flex;flex-direction:column;gap:8px}
+.dots{position:absolute;right:20px;bottom:110px;z-index:3;display:flex;flex-direction:column;gap:8px}
 .dots i{width:4px;height:22px;background:rgba(255,255,255,.3);border-radius:4px;transition:background .3s,height .3s}
 .dots i.on{background:var(--lime);height:38px}
 
