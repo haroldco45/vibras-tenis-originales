@@ -1,4 +1,4 @@
-const CACHE = 'vibras-tenis-v3';
+const CACHE = 'vibras-tenis-v4';
 const SHELL = ['./', './index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
@@ -15,7 +15,7 @@ self.addEventListener('fetch', e => {
   const url = new URL(req.url);
   // App propia: red primero, caché si no hay señal
   if (url.origin === location.origin) {
-    e.respondWith(fetch(req).then(r => { const c = r.clone(); caches.open(CACHE).then(k => k.put(req, c)); return r; }).catch(() => caches.match(req)));
+    e.respondWith(fetch(req, {cache:'no-store'}).then(r => { const c = r.clone(); caches.open(CACHE).then(k => k.put(req, c)); return r; }).catch(() => caches.match(req)));
     return;
   }
   // Fotos de producto: caché primero para que carguen rápido la segunda vez
