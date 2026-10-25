@@ -2,7 +2,7 @@
 
 App (PWA) de venta de tenis y ropa Adidas originales, en inventario y por encargo. Los pedidos llegan por WhatsApp al 311 770 0431.
 
-**En línea:** https://haroldco45.github.io/vibras-tenis-originales/
+**En línea:** https://vibras-tenis-originales.netlify.app/ (copia en https://haroldco45.github.io/vibras-tenis-originales/)
 
 ## Cómo agregar o cambiar productos
 
