@@ -9,7 +9,7 @@ App (PWA) de venta de tenis y ropa Adidas originales, en inventario y por encarg
 Todo está en `index.html`, en la lista `PRODUCTS`. Cada producto lleva:
 
 - `ref`: código de adidas (por ejemplo `KZ8509`)
-- `cat`: `running`, `casual`, `camisetas` u `originals`
+- `cat`: `casual`, `originals`, `running`, `futbol`, `ropa`, `chanclas` o `accesorios`
 - `stock`: `encargo`, o `ya` si está en inventario físico
 - `imgs`: fotos de la página de adidas
 
